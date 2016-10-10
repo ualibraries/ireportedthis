@@ -6,6 +6,9 @@ class Report( object ):
         
         self.population = population
         self.schema = schema
+        
+        self.tags_in_schema_not_in_population = []
+        self.tags_in_population_not_in_schema = copy.deepcopy( self.population.tag_counts )
         self.focus = self._build_focus( self.schema.tree[0] )
 
     def _build_focus( self, start_branch ):
@@ -14,7 +17,9 @@ class Report( object ):
         tag = start_branch['tag']
         if tag in self.population.tag_counts:
             effort = self.population.tag_counts[start_branch['tag']]
+            self.tags_in_population_not_in_schema.pop( tag )
         else:
+            self.tags_in_schema_not_in_population.append( tag )
             effort = 0.0
         
         subfoci = []
@@ -48,8 +53,12 @@ class Report( object ):
             print( 'Basis:' )
             print( '  Population: %s' % ( self.population.source ) )
             print( '    Entries: %d' % ( len( self.population.entries ) ) )
-            print( '    Rejected Entries: %d' % ( len( self.population.entries_rejected ) ) )
+            print( '    Rejected entries: %d' % ( len( self.population.entries_rejected ) ) )
             print( '  Schema: %s' % ( self.schema.source ) )
+            print( '    Tags found in schema, but not in population:' )
+            print( '      %s' % ( ', '.join( sorted( self.tags_in_schema_not_in_population ) ) ) )
+            print( '    Tags found in population but not in schema:' )
+            print( '      %s' % ( ', '.join( sorted( self.tags_in_population_not_in_schema.keys() ) ) ) )
             print()
             print( 'Focus:' )
             self._print_focus( self.focus, cumulative, verbose, depth = 1 )
