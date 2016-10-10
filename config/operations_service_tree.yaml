@@ -1,0 +1,95 @@
+---
+# Service tree for the Systems Integration & Operations team.
+-
+  name:     Systems Integration & Operations
+  tag:      ops
+  branches:
+  -
+    name:     Overhead Activities
+    tag:      overhead
+    branches:
+    -
+      name:     Leave Time
+      tag:      leave
+      branches:
+      -
+        name:     Sick Leave
+        tag:      sick
+        branches:
+      -
+        name:     Holidays
+        tag:      holidays
+        branches:
+      -
+        name:     Vacations
+        tag:      vacations
+        branches:
+    -
+      name:     Communication & Coordination
+      tag:      communication
+      branches:
+      -
+        name:     Email
+        tag:      email
+        branches:
+      -
+        name:     Group Meetings
+        tag:      meetings
+        branches:
+      -
+        name:     One-On-One Conversations
+        tag:      1on1
+        branches:
+      - 
+        name:     Liaison Activities
+        tag:      liaison
+        branches:
+        -
+          name:     Internal Liaison
+          tag:      internal
+          branches:
+          - 
+            name:     Access & Information Services
+            tag:      ais
+            branches:
+          - 
+            name:     Delivery, Description, & Acquisitions
+            tag:      dda
+            branches:
+          -
+            name:     Facilities Planning & Management
+            tag:      fpm
+            branches:
+          - 
+            name:     Office of Digital Information & Stewardship
+            tag:      odis
+            branches:
+          - 
+            name:     Research & Learning
+            tag:      randl
+            branches:
+          - 
+            name:     Special Collections
+            tag:      speccoll
+            branches:
+        -
+          name:     External Liaison
+          tag:      external
+          branches:
+          -
+            name:     Deans Information Technology Council
+            tag:      ditc
+            branches:
+          - 
+            name:     UA IT Special Interest Groups
+            tag:      itsigs
+            branches:
+          - 
+            name:     IT Security Managers Council
+            tag:      itsm
+            branches:
+          -
+            name:     UA IT Summit
+            tag:      itsummit
+            branches:
+...

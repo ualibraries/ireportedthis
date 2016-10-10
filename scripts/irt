@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+import logging
+logging.basicConfig( level = 'DEBUG' )
+
+import ireportedthis
+
+print( 'Version is %s' % ( ireportedthis.__version__ ) )
