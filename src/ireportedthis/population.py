@@ -6,8 +6,8 @@ class Population( object ):
     
     def __init__( self ):
 
-        self.entry_rx_short = re.compile( '^#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)h$' )
-        self.entry_rx_long = re.compile( '^(?P<description>.*?)\s+#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)h$' )
+        self.entry_rx_short = re.compile( '^\s*#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)h\s*$' )
+        self.entry_rx_long = re.compile( '^\s*(?P<description>.*?)\s+#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)h\s*$' )
 
         self.entries = []
         self.entries_rejected = []
@@ -30,6 +30,7 @@ class CSVPopulation( Population ):
         
         with open( self.path_to_file, newline='' ) as f:
             rdr = csv.reader( f )
+            rdr.__next__()
             for r in rdr:
 
                 # 0 user_email_address
@@ -64,6 +65,7 @@ class CSVPopulation( Population ):
             
                 self.entries_rejected.append( {
                     'email': r[0],
+                    'created_at': r[5],
                     'body': r[2]
                 } )
                 
@@ -71,7 +73,7 @@ class CSVPopulation( Population ):
         
     @property
     def source( self ):
-        return 'file | %s' % ( self.path_to_file )
+        return 'csv | %s' % ( self.path_to_file )
 
 class RESTPopulation( Population ):
 
@@ -115,6 +117,7 @@ class RESTPopulation( Population ):
             
             self.entries_rejected.append( {
                 'email': d['user']['email_address'],
+                'created_at': d['created_at'],
                 'body': d['body']
             } )
             

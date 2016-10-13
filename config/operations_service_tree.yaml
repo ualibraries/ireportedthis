@@ -125,8 +125,8 @@
         tag:      budget
         branches:
       -
-        name:     Project Planning
-        tag:      project
+        name:     Projects & Planning
+        tag:      planning
         branches:
       -
         name:     Personnel Management
@@ -236,4 +236,24 @@
     name:     Application Delivery
     tag:      applications
     branches:
+    -
+      name:     Library Authentication & Authorization Services
+      tag:      authnz
+      branches:
+    -
+      name:     Library Hosted Databases Services
+      tag:      databases
+      branches:
+    -
+      name:     Library Proxy Services
+      tag:      ezproxy
+      branches:
+    -
+      name:     Library Preservation Services
+      tag:      rosetta
+      branches:
+    -
+      name:     Library Hosted Journals Services
+      tag:      ojs
+      branches:
 ...

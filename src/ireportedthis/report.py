@@ -2,10 +2,12 @@ import copy
 
 class Report( object ):
 
-    def __init__( self, population, schema ):
+    def __init__( self, population, schema, days, fte ):
         
         self.population = population
         self.schema = schema
+        self.days = days
+        self.fte = fte
         
         self.tags_in_schema_not_in_population = []
         self.tags_in_population_not_in_schema = copy.deepcopy( self.population.tag_counts )
@@ -47,23 +49,35 @@ class Report( object ):
                 if hit:
                     return hit
        
-    def print_report( self, cumulative = False, verbose = False ):
+    def print_report( self, cumulative = False, verbose = False, rejected = False ):
         
         if verbose:
             print( 'Basis:' )
             print( '  Population: %s' % ( self.population.source ) )
-            print( '    Entries: %d' % ( len( self.population.entries ) ) )
-            print( '    Rejected entries: %d' % ( len( self.population.entries_rejected ) ) )
+            print( '    Accepted Entries: %d ( %d%% )' % ( len( self.population.entries ),
+                                                            round( 100 * ( len( self.population.entries )/( len( self.population.entries ) + len( self.population.entries_rejected ) ) ) ) ) )
+            print( '    Rejected entries: %d ( %d%% )' % ( len( self.population.entries_rejected ),
+                                                            round( 100 * ( len( self.population.entries_rejected )/( len( self.population.entries ) + len( self.population.entries_rejected ) ) ) ) ) )
             print( '  Schema: %s' % ( self.schema.source ) )
-            print( '    Tags found in schema, but not in population:' )
-            print( '      %s' % ( ', '.join( sorted( self.tags_in_schema_not_in_population ) ) ) )
             print( '    Tags found in population but not in schema:' )
             print( '      %s' % ( ', '.join( sorted( self.tags_in_population_not_in_schema.keys() ) ) ) )
+            print()
+            print( 'Reporting:' )
+            print( '  Possible Hours: 8 hours/day/fte x %d days x %d fte = %d hours' % ( self.days, self.fte, ( 8 * self.days * self.fte ) ) )
+            print( '  Reported: %d hours ( %d%% )' % ( self.focus.cumulative_effort, round( 100 * ( self.focus.cumulative_effort / ( 8 * self.days * self.fte ) ) ) ) )
             print()
             print( 'Focus:' )
             self._print_focus( self.focus, cumulative, verbose, depth = 1 )
         else:
             self._print_focus( self.focus, cumulative, verbose )
+        print()
+
+        if rejected:
+            print( 'Rejected Entries:' )
+            for e in self.population.entries_rejected:
+                print( '  %s | %s | %s' % ( e['email'], e['created_at'], e['body'] ) )
+            print()
+    
         
     def _print_focus( self, focus, cumulative, verbose, depth = 0 ):
 
