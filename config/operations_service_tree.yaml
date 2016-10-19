@@ -18,11 +18,11 @@
         branches:
       -
         name:     Holidays
-        tag:      holidays
+        tag:      holiday
         branches:
       -
         name:     Vacations
-        tag:      vacations
+        tag:      vacation
         branches:
     -
       name:     Communication & Coordination
@@ -48,6 +48,10 @@
           name:     Internal Liaison
           tag:      internal
           branches:
+          -
+            name:     Library Cabinet
+            tag:      cabinet
+            branches:
           - 
             name:     Access & Information Services
             tag:      ais
@@ -92,4 +96,164 @@
             name:     UA IT Summit
             tag:      itsummit
             branches:
+    -
+      name:     Professional Development
+      tag:      profdev
+      branches:
+      -
+        name:     Informal Learning
+        tag:      learning
+        branches:
+      -
+        name:     Formal Training
+        tag:      training
+        branches:
+      -
+        name:     Teaching Activities
+        tag:      teaching
+        branches:
+      -
+        name:     Conference Attendance
+        tag:      conferences
+        branches:
+    -
+      name:     Organizational Development
+      tag:      organization
+      branches:
+      -
+        name:     Budget Development
+        tag:      budget
+        branches:
+      -
+        name:     Projects & Planning
+        tag:      planning
+        branches:
+      -
+        name:     Personnel Management
+        tag:      personnel
+        branches:
+      -
+        name:     Process Analysis
+        tag:      process
+        branches:
+      -
+        name:     Timesheets
+        tag:      timesheets
+        branches:
+  -
+    name:     Client Services & Support
+    tag:      clients
+    branches:
+    -
+      name:     Helpline Support
+      tag:      helpline
+      branches:
+    -
+      name:     Specific Service Support
+      tag:      services
+      branches:
+      -
+        name:     3D Printer & Scanner Support
+        tag:      3dprinting
+        branches:
+    -
+      name:     Event Support
+      tag:      events
+      branches:
+    -
+      name:     Specific Installations
+      tag:      installations
+      branches:
+      -
+        name:     Information Commons
+        tag:      commons
+        branches:
+  -
+    name:     Systems Integration & Operations
+    tag:      systems
+    branches:
+    -
+      name:     Capacity Provisioning
+      tag:      capacity
+      branches:
+      -
+        name:     Networking
+        tag:      network
+        branches:
+      -
+        name:     Computing
+        tag:      compute
+        branches:
+      -
+        name:     Storage
+        tag:      storage
+        branches:
+      -
+        name:     Backup
+        tag:      backup
+        branches:
+    -
+      name:     Platform Support
+      tag:      platforms
+      branches:
+      -
+        name:     Virtualization Solutions
+        tag:      virtual
+        branches:
+        -
+          name:     VMware Administration
+          tag:      vmware
+          branches:
+      -
+        name:     Operating System Administration
+        tag:      sysadmin
+        branches:
+        -
+          name:     Linux Server Administration
+          tag:      linux
+          branches:
+        -
+          name:     Windows Server Administration
+          tag:      windows
+          branches:
+    -
+      name:     Operational Management
+      tag:      operations
+      branches:
+      -
+        name:     Logging Services
+        tag:      logging
+        branches:
+      -
+        name:     Monitoring Services
+        tag:      monitoring
+        branches:
+      -
+        name:     Security Management
+        tag:      security
+        branches:
+  -
+    name:     Application Delivery
+    tag:      applications
+    branches:
+    -
+      name:     Library Authentication & Authorization Services
+      tag:      authnz
+      branches:
+    -
+      name:     Library Hosted Databases Services
+      tag:      databases
+      branches:
+    -
+      name:     Library Proxy Services
+      tag:      ezproxy
+      branches:
+    -
+      name:     Library Preservation Services
+      tag:      rosetta
+      branches:
+    -
+      name:     Library Hosted Journals Services
+      tag:      ojs
+      branches:
 ...
