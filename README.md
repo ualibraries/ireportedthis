@@ -1,10 +1,9 @@
 # README
 
-(M. Simpson, 10/10/2016)
+(M. Simpson, 10/19/2016)
 
-This is a quickish Python-based hack to pull and compile effort reporting statistics out of
-properly-formatted IDoneThis entries.  There's an "idt" CLI script that will someday turn
-into something useful, but for the moment all it does is print a version number.
+This is a quickish Python-based hack to pull and compile effort reporting statistics
+out of properly-formatted IDoneThis entries.
 
 The current how-to-use-this goes something like:
 
@@ -12,27 +11,25 @@ The current how-to-use-this goes something like:
     in "DEVELOPERS.md".
     
 *   Pull a CSV file of some set of IDoneThis entries via the web interface's
-    "EXPORT" button, and save it to "data/something.csv".
+    "EXPORT" button, and save it to "data/something.csv".  The "data" subdirectory
+    should be in the Git ignore file, to avoid accidentally checking CSV files
+    into source code control.
     
 *   Create (or use an existing) YAML schema file (for sorting the effort-reporting
     entries into hierarchical categories based on hashtags), putting it under
-    "config/something.yaml" for posterity.
+    "config/something.yaml" for posterity.  These should be checked into Git.
     
 *   Do something akin to this:
 
-        % python
+        % scripts/irt ./scripts/irt -p data/operations_201609.csv 
+                                    -s config/operations_service_tree.yaml
+                                    -d 22 -f 8 -cvr
         
-            import ireportedthis
-            p = ireportedthis.CSVPopulation( 'data/operations_sample.csv' )
-            s = ireportedthis.YAMLSchema( 'config/operations_service_tree.yaml' )
-            r = ireportedthis.Report( p, s )
-            r.print_report( cumulative = True, verbose = True )
-            
-    That should give you something to get you started, prowl the source code for
-    more to play with.
-
-If there's something you really want to see, but don't have time to code, go stick it
-in the "TODO.md" file so people know.
+    You can do "scripts/irt -h" to find out how all of the CLI switches work.
+    
+You should also feel free to prowl the source code -- this is a very alpha utility
+at this point in time.  If there's something you really want to see, but don't have
+time to code, please put it in the "TODO.md" file for later reference.
 
 I'm personally trying to use formal Git Flow source control, not because this project
 requires it, but because I need the practice.  So feature branches and merge-to-develop,
@@ -40,5 +37,4 @@ release branches and merge-to-master, etc.  My general rules are: keep feature b
 local to my development environment, and rebase before merging, so what the "develop" branch
 sees is one nice, clean, well-commented commit detailing what that particular feature
 branch accomplished.  Once I get a few features finished and merged, the commit log
-for "develop" will show what I mean.
-
+for the "develop" branch will demonstrate what I mean.
