@@ -1,0 +1,52 @@
+---
+# Tag filter for the Systems Integration & Operations team.
+
+### Some typos/standardization cleanup
+
+emails:       email
+Helpline:     helpline
+meeting:      meetings
+Panopto:      panopto
+scanner:      scanners
+UAPress:      uapress
+vac:          vacation
+VMware:       vmware
+
+audiovisual:  events
+av:           events
+av_consult:   events
+av_research:  events
+av_setup:     events
+
+break:        overhead
+cleaning:     overhead
+flushot:      overhead
+food:         overhead
+comp:         overhead
+out:          overhead
+party:        overhead
+
+consulting:   discussions
+informal:     discussions
+
+laptop:       staffsup
+printer:      staffsup
+refresh:      staffsup
+purchasing:   staffsup
+
+commons:      ic
+iccomputers:  ic
+
+ecommerce:          millennium
+digitalsignage:     signage
+read:               learning
+telephones:         telecom
+feedback:           liaison
+helpline_followup:  helpline
+hw_scanner:         scanners
+kfs:                financials
+lsprfp:             lsp
+reimaging:          lending
+servers:            capacity
+idonethishell:      effort
+...

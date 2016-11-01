@@ -1,4 +1,5 @@
 import copy
+import textwrap
 
 class Report( object ):
 
@@ -54,16 +55,23 @@ class Report( object ):
         if verbose:
             print( 'Basis:' )
             print( '  Population: %s' % ( self.population.source ) )
-            print( '    Accepted Entries: %d ( %d%% )' % ( len( self.population.entries ),
+            print( '    Accepted entries: %d ( %d%% )' % ( len( self.population.entries ),
                                                             round( 100 * ( len( self.population.entries )/( len( self.population.entries ) + len( self.population.entries_rejected ) ) ) ) ) )
             print( '    Rejected entries: %d ( %d%% )' % ( len( self.population.entries_rejected ),
                                                             round( 100 * ( len( self.population.entries_rejected )/( len( self.population.entries ) + len( self.population.entries_rejected ) ) ) ) ) )
+            print( '    Earliest entry: %s' % ( self.population.entries_earliest.strftime( '%c' ) ) )
+            print( '    Latest entry: %s' % ( self.population.entries_latest.strftime( '%c' ) ) )
             print( '  Schema: %s' % ( self.schema.source ) )
-            print( '    Tags found in population but not in schema:' )
-            print( '      %s' % ( ', '.join( sorted( self.tags_in_population_not_in_schema.keys() ) ) ) )
+            if self.tags_in_population_not_in_schema.keys():
+                print( '    Tags found in population but not in schema:' )
+                print( textwrap.indent( textwrap.fill( ', '.join( sorted( self.tags_in_population_not_in_schema.keys() ) ), width = 70 ), ' ' * 6 ) )
+                print( '    Unrecognized effort: %.2f hours' % ( sum( self.tags_in_population_not_in_schema.values() ) ) )
+            else:
+                print( '    Tags found in population but not in schema: (none)' )
+                print( '    Unrecognized effort: (none)' )
             print()
             print( 'Reporting:' )
-            print( '  Possible Hours: 8 hours/day/fte x %d days x %d fte = %d hours' % ( self.days, self.fte, ( 8 * self.days * self.fte ) ) )
+            print( '  Possible hours: 8 hours/day/fte x %d days x %d fte = %d hours' % ( self.days, self.fte, ( 8 * self.days * self.fte ) ) )
             print( '  Reported: %d hours ( %d%% )' % ( self.focus.cumulative_effort, round( 100 * ( self.focus.cumulative_effort / ( 8 * self.days * self.fte ) ) ) ) )
             print()
             print( 'Focus:' )
@@ -75,7 +83,7 @@ class Report( object ):
         if rejected:
             print( 'Rejected Entries:' )
             for e in self.population.entries_rejected:
-                print( '  %s | %s | %s' % ( e['email'], e['created_at'], e['body'] ) )
+                print( '  %s | %s | %s' % ( e['email'], e['date'], e['body'] ) )
             print()
     
         
