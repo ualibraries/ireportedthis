@@ -1,16 +1,20 @@
 import csv
+import datetime
 import re
 import requests
+import yaml
 
 class Population( object ):
     
     def __init__( self ):
 
-        self.entry_rx_short = re.compile( '^\s*#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)h\s*$' )
-        self.entry_rx_long = re.compile( '^\s*(?P<description>.*?)\s+#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)h\s*$' )
+        self.entry_rx_short = re.compile( '^\s*#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)\s*(h|hr|hrs)\s*$' )
+        self.entry_rx_long = re.compile( '^\s*(?P<description>.*?)\s+#(?P<tag>\w+)\s+(?P<effort>\d+|\d+\.\d+|\.\d+)\s*(h|hr|hrs)\s*$' )
 
         self.entries = []
         self.entries_rejected = []
+        self.entries_earliest = False
+        self.entries_latest = False
 
         self.tag_counts = {}
 
@@ -20,15 +24,24 @@ class Population( object ):
             if e['tag'] not in self.tag_counts:
                 self.tag_counts[e['tag']] = 0
             self.tag_counts[e['tag']] += e['effort']
-    
+            
+    def _set_earliest_and_latest( self ):
+        
+        self.entries_earliest = min( [ e['date'] for e in self.entries ] )
+        self.entries_latest = max( [e['date'] for e in self.entries ] )
+
 class CSVPopulation( Population ):
 
-    def __init__( self, path_to_file ):
+    def __init__( self, path_to_export_file, path_to_filter_file ):
         super().__init__()
         
-        self.path_to_file = path_to_file
+        self.path_to_export_file = path_to_export_file
+        self.path_to_filter_file = path_to_filter_file
         
-        with open( self.path_to_file, newline='' ) as f:
+        with open( self.path_to_filter_file ) as f:
+            self.filters = yaml.safe_load( f )
+        
+        with open( self.path_to_export_file, newline='' ) as f:
             rdr = csv.reader( f )
             rdr.__next__()
             for r in rdr:
@@ -43,87 +56,47 @@ class CSVPopulation( Population ):
                 
                 m = self.entry_rx_short.match( r[2] )
                 if m:
+                    
+                    if m.group( 'tag' ) in self.filters.keys():
+                        filtered_tag = self.filters[m.group( 'tag' )]
+                    else:
+                        filtered_tag = m.group( 'tag' )
+                    
                     self.entries.append( {
                         'email': r[0],
-                        'created_at': r[5],
+                        'date': datetime.datetime.strptime( r[4], '%Y-%m-%d' ),
                         'description': '(none)',
-                        'tag': m.group( 'tag' ),
+                        'tag': filtered_tag,
                         'effort': float( m.group( 'effort' ) )
                     } )
                     continue
             
                 m = self.entry_rx_long.match( r[2] )
                 if m:
+
+                    if m.group( 'tag' ) in self.filters.keys():
+                        filtered_tag = self.filters[m.group( 'tag' )]
+                    else:
+                        filtered_tag = m.group( 'tag' )
+                    
                     self.entries.append( {
                         'email': r[0],
-                        'created_at': r[5],
+                        'date': datetime.datetime.strptime( r[4], '%Y-%m-%d' ),
                         'description': m.group( 'description' ),
-                        'tag': m.group( 'tag' ),
+                        'tag': filtered_tag,
                         'effort': float( m.group( 'effort' ) )
                     } )
                     continue
             
                 self.entries_rejected.append( {
                     'email': r[0],
-                    'created_at': r[5],
+                    'date': r[4],
                     'body': r[2]
                 } )
                 
         self._sum_tags()
+        self._set_earliest_and_latest()
         
     @property
     def source( self ):
-        return 'csv | %s' % ( self.path_to_file )
-
-class RESTPopulation( Population ):
-
-    def __init__( self, idt_token, idt_team_id, start_date, end_date ):
-        super().__init__()
-
-        self.idt_url = 'https://beta.idonethis.com/api/v2'
-
-        self.idt_token = idt_token        
-        self.idt_team_id = idt_team_id
-        self.start_date = start_date
-        self.end_date = end_date
-        
-        self.query_url = '%s/teams/%s/entries' % ( self.idt_url, self.idt_team_id )
-        self.query_headers = { 'Authorization': 'Token %s' % ( self.idt_token ) }
-        self.data = requests.get( self.query_url, self.query_headers ).json()
-
-        for d in self.data:
-            
-            m = self.entry_rx_short.match( d['body'] )
-            if m:
-                self.entries.append( {
-                    'email': d['user']['email_address'],
-                    'created_at': d['created_at'],
-                    'description': '(none)',
-                    'tag': m.group( 'tag' ),
-                    'effort': m.group( 'effort' )
-                } )
-                continue
-            
-            m = self.entry_rx_long.match( d['body' ] )
-            if m:
-                self.entries.append( {
-                    'email': d['user']['email_address'],
-                    'created_at': d['created_at'],
-                    'description': m.group( 'description' ),
-                    'tag': m.group( 'tag' ),
-                    'effort': m.group( 'effort' )
-                } )
-                continue
-            
-            self.entries_rejected.append( {
-                'email': d['user']['email_address'],
-                'created_at': d['created_at'],
-                'body': d['body']
-            } )
-            
-            self._sum_tags()
-
-    @property
-    def source( self ):
-        return 'rest | %s' % ( self.query_url )
-
+        return 'csv | %s | %s' % ( self.path_to_export_file, self.path_to_filter_file )

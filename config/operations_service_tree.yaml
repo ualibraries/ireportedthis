@@ -40,6 +40,10 @@
         name:     One-On-One Conversations
         tag:      1on1
         branches:
+      -
+        name:     Informal Discussions
+        tag:      discussions
+        branches:
       - 
         name:     Liaison Activities
         tag:      liaison
@@ -51,6 +55,10 @@
           -
             name:     Library Cabinet
             tag:      cabinet
+            branches:
+          - 
+            name:     Library Council of Appointed Professionals
+            tag:      lcap
             branches:
           - 
             name:     Access & Information Services
@@ -75,6 +83,10 @@
           - 
             name:     Special Collections
             tag:      speccoll
+            branches:
+          - 
+            name:     UA Press
+            tag:      uapress
             branches:
         -
           name:     External Liaison
@@ -104,6 +116,10 @@
         name:     Informal Learning
         tag:      learning
         branches:
+        -
+          name:     The Crash Course
+          tag:      crashcourse
+          branches:
       -
         name:     Formal Training
         tag:      training
@@ -114,12 +130,16 @@
         branches:
       -
         name:     Conference Attendance
-        tag:      conferences
+        tag:      conference
         branches:
     -
       name:     Organizational Development
       tag:      organization
       branches:
+      -
+        name:     General Administrative Tasks
+        tag:      admin
+        branches:
       -
         name:     Budget Development
         tag:      budget
@@ -140,6 +160,18 @@
         name:     Timesheets
         tag:      timesheets
         branches:
+    -
+      name:     Internal Toolsmithing
+      tag:      tools
+      branches:
+      -
+        name:     Effort Reporting
+        tag:      effort
+        branches:
+      -
+        name:     Enterprise Service Management
+        tag:      esm
+        branches:
   -
     name:     Client Services & Support
     tag:      clients
@@ -149,25 +181,77 @@
       tag:      helpline
       branches:
     -
+      name:     Student Management
+      tag:      students
+      branches:
+    -
+      name:     Software Management
+      tag:      software
+      branches:
+      -
+        name:     Licensing Support
+        tag:      licensing
+        branches:
+      -
+        name:     Keyserver Support
+        tag:      keyserver
+        branches:
+    -
       name:     Specific Service Support
       tag:      services
       branches:
       -
+        name:     Telecommunications Support
+        tag:      telecom
+        branches:
+      -
+        name:     Book Scanner Support
+        tag:      scanners
+        branches:
+      -
+        name:     Digital Signage Support
+        tag:      signage
+        branches:
+      -
         name:     3D Printer & Scanner Support
         tag:      3dprinting
+        branches:
+      -
+        name:     Lecture Capture Support
+        tag:      panopto
+        branches:
+      -
+        name:     Room Reservation Services Support
+        tag:      dibs
         branches:
     -
       name:     Event Support
       tag:      events
       branches:
     -
-      name:     Specific Installations
-      tag:      installations
+      name:     Endpoint Support
+      tag:      endpoints
       branches:
       -
-        name:     Information Commons
-        tag:      commons
+        name:     Staff Endpoints Support
+        tag:      staffsup
         branches:
+      -
+        name:     Specific Installations
+        tag:      installations
+        branches:
+        -
+          name:     Meeting Rooms
+          tag:      rooms
+          branches:
+        -
+          name:     Information Commons
+          tag:      ic
+          branches:
+        -
+          name:     Equipment Lending
+          tag:      lending
+          branches:
   -
     name:     Systems Integration & Operations
     tag:      systems
@@ -221,6 +305,14 @@
       tag:      operations
       branches:
       -
+        name:     Configuration Management
+        tag:      configuration
+        branches:
+        -
+          name:     LANDESK Systems Management
+          tag:      landesk
+          branches:
+      -
         name:     Logging Services
         tag:      logging
         branches:
@@ -232,6 +324,10 @@
         name:     Security Management
         tag:      security
         branches:
+        -
+          name:     PCI Compliance Verification
+          tag:      pci
+          branches:
   -
     name:     Application Delivery
     tag:      applications
@@ -240,6 +336,34 @@
       name:     Library Authentication & Authorization Services
       tag:      authnz
       branches:
+    -
+      name:     Library Document Management Services
+      tag:      documents
+      branches:
+      -
+        name:     Box Service
+        tag:      box
+        branches:
+      -
+        name:     DocuWare Service
+        tag:      docuware
+        branches:
+    -
+      name:     Library Services Platforms
+      tag:      lsp
+      branches:
+      -
+        name:     Millennium Library Services Platform
+        tag:      millennium
+        branches:
+      -
+        name:     Illiad Interlibrary Loan Service
+        tag:      illiad
+        branches:
+      -
+        name:     OCLC Services
+        tag:      oclc
+        branches:
     -
       name:     Library Hosted Databases Services
       tag:      databases
@@ -256,4 +380,20 @@
       name:     Library Hosted Journals Services
       tag:      ojs
       branches:
+    -
+      name:     Data Integration Services
+      tag:      etl
+      branches:
+      -
+        name:     Amer-X Facilities Security
+        tag:      amerx
+        branches:
+      -
+        name:     GreenGlass Collection Analysis
+        tag:      greenglass
+        branches:
+      -
+        name:     UAccess Financials
+        tag:      financials
+        branches:
 ...

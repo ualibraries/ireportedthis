@@ -5,6 +5,7 @@ import ireportedthis
 
 parser = argparse.ArgumentParser( description='Produce an IReportedThis report.' )
 parser.add_argument( '--population', '-p', required = True, help = 'path to population file' )
+parser.add_argument( '--tagfilter', '-t', required = True, help = 'path to tag filter file' )
 parser.add_argument( '--schema', '-s', required = True, help = 'path to schema file' )
 parser.add_argument( '--days', '-d', required = True, type = int, help = 'number of working days in sampling period' )
 parser.add_argument( '--fte', '-f', required = True, type = int, help = 'number of FTE deployed across sampling period' )
@@ -13,7 +14,7 @@ parser.add_argument( '--verbose', '-v', action = 'store_true', help = 'turn on v
 parser.add_argument( '--rejected', '-r', action = 'store_true', help = 'show entries rejected during population parse' )
 args = parser.parse_args()
 
-p = ireportedthis.CSVPopulation( args.population )
+p = ireportedthis.CSVPopulation( args.population, args.tagfilter )
 s = ireportedthis.YAMLSchema( args.schema )
 r = ireportedthis.Report( p, s, args.days, args.fte )
 
