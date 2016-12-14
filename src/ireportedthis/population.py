@@ -54,11 +54,14 @@ class CSVPopulation( Population ):
                 # 5 created_at
                 # 6 archived_at
                 
+                if r[0] in self.filters['skip']:
+                    continue
+                
                 m = self.entry_rx_short.match( r[2] )
                 if m:
                     
-                    if m.group( 'tag' ) in self.filters.keys():
-                        filtered_tag = self.filters[m.group( 'tag' )]
+                    if m.group( 'tag' ) in self.filters['tags'].keys():
+                        filtered_tag = self.filters['tags'][m.group( 'tag' )]
                     else:
                         filtered_tag = m.group( 'tag' )
                     
@@ -74,8 +77,8 @@ class CSVPopulation( Population ):
                 m = self.entry_rx_long.match( r[2] )
                 if m:
 
-                    if m.group( 'tag' ) in self.filters.keys():
-                        filtered_tag = self.filters[m.group( 'tag' )]
+                    if m.group( 'tag' ) in self.filters['tags'].keys():
+                        filtered_tag = self.filters['tags'][m.group( 'tag' )]
                     else:
                         filtered_tag = m.group( 'tag' )
                     

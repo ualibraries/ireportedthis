@@ -5,6 +5,278 @@
   tag:      ops
   branches:
   -
+    name:     Client Services & Support
+    tag:      clients
+    branches:
+    -
+      name:     Helpline Support
+      tag:      helpline
+      branches:
+    -
+      name:     Student Management
+      tag:      students
+      branches:
+    -
+      name:     Asset Management
+      tag:      assets
+      branches:
+      -
+        name:     Licensing Support
+        tag:      licensing
+        branches:
+      -
+        name:     Keyserver Support
+        tag:      keyserver
+        branches:
+      -
+        name:     LANDESK Support
+        tag:      landesk
+        branches:
+    -
+      name:     Specific Service Support
+      tag:      services
+      branches:
+      -
+        name:     Telecommunications Support
+        tag:      telecom
+        branches:
+      -
+        name:     Book Scanner Support
+        tag:      scanners
+        branches:
+      -
+        name:     Digital Signage Support
+        tag:      signage
+        branches:
+      -
+        name:     3D Printer & Scanner Support
+        tag:      3dprinting
+        branches:
+      -
+        name:     Lecture Capture Support
+        tag:      panopto
+        branches:
+      -
+        name:     Room Reservation Services Support
+        tag:      dibs
+        branches:
+    -
+      name:     Endpoint Support
+      tag:      endpoints
+      branches:
+      -
+        name:     Staff Workstations & Laptops
+        tag:      staff
+        branches:
+      -
+        name:     Specific Installations
+        tag:      installations
+        branches:
+        -
+          name:     Meeting Rooms
+          tag:      rooms
+          branches:
+        -
+          name:     Information Commons
+          tag:      ic
+          branches:
+        -
+          name:     Technology Lending
+          tag:      lending
+          branches:
+    -
+      name:     Event Support
+      tag:      events
+      branches:
+  -
+    name:     Systems & Application Delivery
+    tag:      sysapp
+    branches:
+    -
+      name:     Systems Integration & Administration
+      tag:      systems
+      branches:
+      -
+        name:     Capacity Provisioning
+        tag:      capacity
+        branches:
+        -
+          name:     Networking
+          tag:      network
+          branches:
+        -
+          name:     Computing
+          tag:      compute
+          branches:
+        -
+          name:     Storage
+          tag:      storage
+          branches:
+        -
+          name:     Backup
+          tag:      backup
+          branches:
+      -
+        name:     Platform Support
+        tag:      platforms
+        branches:
+        -
+          name:     Virtualization Solutions
+          tag:      virtualization
+          branches:
+          -
+            name:     VMware Administration
+            tag:      vmware
+            branches:
+        -
+          name:     Operating Systems
+          tag:      os
+          branches:
+          -
+            name:     Linux Server Administration
+            tag:      linux
+            branches:
+          -
+            name:     Windows Server Administration
+            tag:      windows
+            branches:
+        -
+          name:     Container Services
+          tag:      containers
+          branches:
+          -
+            name:     Kubernetes Administration
+            tag:      kubernetes
+            branches:
+      -
+        name:     Operational Management
+        tag:      operations
+        branches:
+        -
+          name:     Configuration Management
+          tag:      configuration
+          branches:
+          -
+            name:     Ansible Configuration Management
+            tag:      ansible
+            branches:
+        -
+          name:     Monitoring & Alerting
+          tag:      monitoring
+          branches:
+        -
+          name:     Logging Services
+          tag:      logging
+          branches:
+        -
+          name:     Security Management
+          tag:      security
+          branches:
+          -
+            name:     PCI Compliance Verification
+            tag:      pci
+            branches:
+    -
+      name:     Application Delivery
+      tag:      applications
+      branches:
+      -
+        name:     Service Delivery
+        tag:      delivery
+        branches:
+        -
+          name:     Authentication & Authorization Services
+          tag:      authnz
+          branches:
+        -
+          name:     Document Management Services
+          tag:      documents
+          branches:
+          -
+            name:     Box Service
+            tag:      box
+            branches:
+          -
+            name:     DocuWare Service
+            tag:      docuware
+            branches:
+          -
+            name:     SharePoint Service
+            tag:      sharepoint
+            branches:
+        -
+          name:     Library Services Platforms
+          tag:      lsp
+          branches:
+          -
+            name:     Millennium Service
+            tag:      millennium
+            branches:
+            -
+              name:     GreenGlass Collection Analysis
+              tag:      greenglass
+              branches:
+          -
+            name:     Illiad Service
+            tag:      illiad
+            branches:
+          -
+            name:     OCLC Services
+            tag:      oclc
+            branches:
+        -
+          name:     Proxy Services
+          tag:      proxy
+          branches:
+          -
+            name:     EZProxy Service
+            tag:      ezproxy
+            branches:
+        -
+          name:     Digital Preservation Services
+          tag:      preservation
+          branches:
+          -
+            name:     Rosetta Service
+            tag:      rosetta
+            branches:
+        -
+          name:     Hosted Data
+          tag:      hosted
+          branches:
+          -
+            name:     Hosted Databases
+            tag:      databases
+            branches:
+          -
+            name:     Hosted Journals
+            tag:      journals
+            branches:
+            -
+              name:     OJS Service
+              tag:      ojs
+              branches:
+          -
+            name:     Hosted Websites
+            tag:      websites
+            branches:
+            -
+              name:     Drupal Services
+              tag:      drupal
+              branches:
+      -
+        name:     Data Integration
+        tag:      etl
+        branches:
+        -
+          name:     Amer-X Facilities Security
+          tag:      amerx
+          branches:
+        -
+          name:     UAccess Financials
+          tag:      uaf
+          branches:
+  -
     name:     Overhead Activities
     tag:      overhead
     branches:
@@ -59,6 +331,14 @@
           - 
             name:     Library Council of Appointed Professionals
             tag:      lcap
+            branches:
+          - 
+            name:     Compensation Philosophy Task Force
+            tag:      cptf
+            branches:
+          -
+            name:     Diversity, Social Justice, & Equity Council
+            tag:      dsjec
             branches:
           - 
             name:     Access & Information Services
@@ -116,13 +396,13 @@
         name:     Informal Learning
         tag:      learning
         branches:
-        -
-          name:     The Crash Course
-          tag:      crashcourse
-          branches:
       -
         name:     Formal Training
         tag:      training
+        branches:
+      -
+        name:     Cross-Training & Transitioning
+        tag:      crosstraining
         branches:
       -
         name:     Teaching Activities
@@ -130,7 +410,7 @@
         branches:
       -
         name:     Conference Attendance
-        tag:      conference
+        tag:      conferences
         branches:
     -
       name:     Organizational Development
@@ -171,229 +451,5 @@
       -
         name:     Enterprise Service Management
         tag:      esm
-        branches:
-  -
-    name:     Client Services & Support
-    tag:      clients
-    branches:
-    -
-      name:     Helpline Support
-      tag:      helpline
-      branches:
-    -
-      name:     Student Management
-      tag:      students
-      branches:
-    -
-      name:     Software Management
-      tag:      software
-      branches:
-      -
-        name:     Licensing Support
-        tag:      licensing
-        branches:
-      -
-        name:     Keyserver Support
-        tag:      keyserver
-        branches:
-    -
-      name:     Specific Service Support
-      tag:      services
-      branches:
-      -
-        name:     Telecommunications Support
-        tag:      telecom
-        branches:
-      -
-        name:     Book Scanner Support
-        tag:      scanners
-        branches:
-      -
-        name:     Digital Signage Support
-        tag:      signage
-        branches:
-      -
-        name:     3D Printer & Scanner Support
-        tag:      3dprinting
-        branches:
-      -
-        name:     Lecture Capture Support
-        tag:      panopto
-        branches:
-      -
-        name:     Room Reservation Services Support
-        tag:      dibs
-        branches:
-    -
-      name:     Event Support
-      tag:      events
-      branches:
-    -
-      name:     Endpoint Support
-      tag:      endpoints
-      branches:
-      -
-        name:     Staff Endpoints Support
-        tag:      staffsup
-        branches:
-      -
-        name:     Specific Installations
-        tag:      installations
-        branches:
-        -
-          name:     Meeting Rooms
-          tag:      rooms
-          branches:
-        -
-          name:     Information Commons
-          tag:      ic
-          branches:
-        -
-          name:     Equipment Lending
-          tag:      lending
-          branches:
-  -
-    name:     Systems Integration & Operations
-    tag:      systems
-    branches:
-    -
-      name:     Capacity Provisioning
-      tag:      capacity
-      branches:
-      -
-        name:     Networking
-        tag:      network
-        branches:
-      -
-        name:     Computing
-        tag:      compute
-        branches:
-      -
-        name:     Storage
-        tag:      storage
-        branches:
-      -
-        name:     Backup
-        tag:      backup
-        branches:
-    -
-      name:     Platform Support
-      tag:      platforms
-      branches:
-      -
-        name:     Virtualization Solutions
-        tag:      virtual
-        branches:
-        -
-          name:     VMware Administration
-          tag:      vmware
-          branches:
-      -
-        name:     Operating System Administration
-        tag:      sysadmin
-        branches:
-        -
-          name:     Linux Server Administration
-          tag:      linux
-          branches:
-        -
-          name:     Windows Server Administration
-          tag:      windows
-          branches:
-    -
-      name:     Operational Management
-      tag:      operations
-      branches:
-      -
-        name:     Configuration Management
-        tag:      configuration
-        branches:
-        -
-          name:     LANDESK Systems Management
-          tag:      landesk
-          branches:
-      -
-        name:     Logging Services
-        tag:      logging
-        branches:
-      -
-        name:     Monitoring Services
-        tag:      monitoring
-        branches:
-      -
-        name:     Security Management
-        tag:      security
-        branches:
-        -
-          name:     PCI Compliance Verification
-          tag:      pci
-          branches:
-  -
-    name:     Application Delivery
-    tag:      applications
-    branches:
-    -
-      name:     Library Authentication & Authorization Services
-      tag:      authnz
-      branches:
-    -
-      name:     Library Document Management Services
-      tag:      documents
-      branches:
-      -
-        name:     Box Service
-        tag:      box
-        branches:
-      -
-        name:     DocuWare Service
-        tag:      docuware
-        branches:
-    -
-      name:     Library Services Platforms
-      tag:      lsp
-      branches:
-      -
-        name:     Millennium Library Services Platform
-        tag:      millennium
-        branches:
-      -
-        name:     Illiad Interlibrary Loan Service
-        tag:      illiad
-        branches:
-      -
-        name:     OCLC Services
-        tag:      oclc
-        branches:
-    -
-      name:     Library Hosted Databases Services
-      tag:      databases
-      branches:
-    -
-      name:     Library Proxy Services
-      tag:      ezproxy
-      branches:
-    -
-      name:     Library Preservation Services
-      tag:      rosetta
-      branches:
-    -
-      name:     Library Hosted Journals Services
-      tag:      ojs
-      branches:
-    -
-      name:     Data Integration Services
-      tag:      etl
-      branches:
-      -
-        name:     Amer-X Facilities Security
-        tag:      amerx
-        branches:
-      -
-        name:     GreenGlass Collection Analysis
-        tag:      greenglass
-        branches:
-      -
-        name:     UAccess Financials
-        tag:      financials
         branches:
 ...
