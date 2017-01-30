@@ -1,7 +1,6 @@
 import csv
 import datetime
 import re
-import requests
 import yaml
 
 class Population( object ):
