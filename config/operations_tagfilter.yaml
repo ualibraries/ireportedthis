@@ -1,0 +1,88 @@
+---
+# Tag filter for the Systems Integration & Operations team.
+
+### Drop specific people from report
+
+skip:            []
+
+  #- mgsimpson@email.arizona.edu
+
+### Rewrite tags
+
+tags:
+
+  ### Part one, simplifying things that were too granular
+
+  audiovisual:        events
+  av:                 events
+  av_consult:         events
+  av_research:        events
+  av_setup:           events
+  
+  break:              overhead
+  cleaning:           overhead
+  flushot:            overhead
+  food:               overhead
+  comp:               overhead
+  out:                overhead
+  paperwork:          overhead
+  party:              overhead
+  shuttle:            overhead
+  
+  consulting:         discussions
+  informal:           discussions
+  
+  laptop:             staff
+  printer:            staff
+  refresh:            staff  
+
+  inventory:          assets
+  purchasing:         assets
+  research:           assets
+  software:           assets
+
+  ### Part two, fixing mostly capitalization and singluar vs. plural
+
+  Helpline:           helpline
+  ICclassroom:        icc
+  Panopto:            panopto
+  UAConnect:          exchange
+  UAPress:            uapress
+  VMware:             vmware
+
+  conference:         conferences
+  emails:             email
+  event:              events
+  meeting:            meetings
+  scanner:            scanners
+  
+  ### Part three, standardizing and fixing specific entries  
+  
+  ahsl:               lending
+  commons:            ic
+  crashcourse:        learning
+  ecommerce:          millennium
+  digitalsignage:     signage
+  documentation:      ic
+  feedback:           liaison
+  golfcart:           clients
+  helpline_followup:  helpline
+  hosting:            hosted
+  hw_scanner:         scanners
+  iccomputers:        ic
+  idonethishell:      effort
+  kfs:                uaf
+  lsprfp:             lsp
+  maintenance:        backup
+  manybadwords:       rooms
+  millenium:          millennium
+  peerfeedback:       performance
+  read:               learning
+  reimaging:          lending
+  servers:            capacity
+  telephones:         telecom
+  uahsl:              endpoints
+  vac:                vacation
+  virus:              endpoints
+  wifi:               network
+...

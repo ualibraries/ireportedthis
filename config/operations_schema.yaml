@@ -1,5 +1,5 @@
 ---
-# Service tree for the Systems Integration & Operations team.
+# Service schema for the Systems Integration & Operations team.
 -
   name:     Systems Integration & Operations
   tag:      ops
@@ -79,6 +79,10 @@
         -
           name:     Information Commons
           tag:      ic
+          branches:
+        -
+          name:     IC Classroom
+          tag:      icc
           branches:
         -
           name:     Technology Lending
@@ -188,6 +192,18 @@
           name:     Authentication & Authorization Services
           tag:      authnz
           branches:
+          -
+            name:     NetID Service
+            tag:      netid
+            branches:
+        -
+          name:     Email Services
+          tag:      emailsrvc
+          branches:
+          -
+            name:     Exchange Service
+            tag:      exchange
+            branches:
         -
           name:     Document Management Services
           tag:      documents
@@ -285,6 +301,10 @@
       tag:      leave
       branches:
       -
+        name:     Closure
+        tag:      closure
+        branches:
+      -
         name:     Sick Leave
         tag:      sick
         branches:
@@ -348,6 +368,10 @@
             name:     Delivery, Description, & Acquisitions
             tag:      dda
             branches:
+          - 
+            name:     Electronic Document Center
+            tag:      edc
+            branches:
           -
             name:     Facilities Planning & Management
             tag:      fpm
@@ -372,6 +396,10 @@
           name:     External Liaison
           tag:      external
           branches:
+          -
+            name:     IT Directors Council
+            tag:      itdc
+            branches:
           -
             name:     Deans Information Technology Council
             tag:      ditc
@@ -401,12 +429,12 @@
         tag:      training
         branches:
       -
-        name:     Cross-Training & Transitioning
-        tag:      crosstraining
-        branches:
-      -
         name:     Teaching Activities
         tag:      teaching
+        branches:
+      -
+        name:     Cross-Training & Transitioning
+        tag:      crosstraining
         branches:
       -
         name:     Conference Attendance
@@ -431,6 +459,14 @@
       -
         name:     Personnel Management
         tag:      personnel
+        branches:
+      -
+        name:     Performance Conversation
+        tag:      performance
+        branches:
+      -
+        name:     Policy Development
+        tag:      policy
         branches:
       -
         name:     Process Analysis

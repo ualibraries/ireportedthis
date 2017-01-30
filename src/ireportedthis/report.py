@@ -3,12 +3,13 @@ import textwrap
 
 class Report( object ):
 
-    def __init__( self, population, schema, days, fte ):
+    def __init__( self, population, schema, days, fte, hours ):
         
         self.population = population
         self.schema = schema
         self.days = days
         self.fte = fte
+        self.hours = hours
         
         self.tags_in_schema_not_in_population = []
         self.tags_in_population_not_in_schema = copy.deepcopy( self.population.tag_counts )
@@ -71,8 +72,8 @@ class Report( object ):
                 print( '    Unrecognized effort: (none)' )
             print()
             print( 'Reporting:' )
-            print( '  Possible hours: 8 hours/day/fte x %d days x %d fte = %d hours' % ( self.days, self.fte, ( 8 * self.days * self.fte ) ) )
-            print( '  Reported: %d hours ( %d%% )' % ( self.focus.cumulative_effort, round( 100 * ( self.focus.cumulative_effort / ( 8 * self.days * self.fte ) ) ) ) )
+            print( '  Possible hours: %.2f days x %.2f fte x %.2f hours/day/fte = %.2f hours' % ( self.days, self.fte, self.hours, ( self.days * self.fte * self.hours ) ) )
+            print( '  Reported: %d hours ( %d%% )' % ( self.focus.cumulative_effort, round( 100 * ( self.focus.cumulative_effort / ( self.days * self.fte * self.hours ) ) ) ) )
             print()
             print( 'Focus:' )
             self._print_focus( self.focus, cumulative, verbose, depth = 1 )
